@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragment_main">
+
+    <fragment
+        android:id="@+id/fragment_main"
+        android:name="inas.anisha.classify.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_scheduleFragment"
+            app:destination="@id/fragment_schedule" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_schedule"
+        android:name="inas.anisha.classify.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule">
+        <action
+            android:id="@+id/action_scheduleFragment_to_addScheduleFragment"
+            app:destination="@id/fragment_add_schedule" />
+        <argument
+            android:name="UserName"
+            android:defaultValue="Name"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_add_schedule"
+        android:name="inas.anisha.classify.AddScheduleFragment"
+        android:label="fragment_add_schedule"
+        tools:layout="@layout/fragment_add_schedule" />
+</navigation>
