@@ -22,7 +22,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         button_submit.setOnClickListener {
-            findNavController().navigate(R.id.fragment_schedule)
+            val userName = edit_text_name.text.toString()
+            MainFragmentDirections.actionMainFragmentToScheduleFragment("Hello, $userName!").also {
+                findNavController().navigate(it)
+            }
         }
 
     }

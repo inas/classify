@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_scheduleFragment"
-            app:destination="@id/fragment_schedule" />
+            app:destination="@id/fragment_schedule">
+            <argument
+                android:name="UserName"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
@@ -25,7 +29,6 @@
             app:destination="@id/fragment_add_schedule" />
         <argument
             android:name="UserName"
-            android:defaultValue="Name"
             app:argType="string" />
     </fragment>
 
@@ -33,5 +36,9 @@
         android:id="@+id/fragment_add_schedule"
         android:name="inas.anisha.classify.AddScheduleFragment"
         android:label="fragment_add_schedule"
-        tools:layout="@layout/fragment_add_schedule" />
+        tools:layout="@layout/fragment_add_schedule">
+        <action
+            android:id="@+id/action_fragment_add_schedule_to_fragment_schedule"
+            app:destination="@id/fragment_schedule" />
+    </fragment>
 </navigation>
