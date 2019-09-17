@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_main.*
+import inas.anisha.classify.Base.BaseFragment
+import kotlinx.android.synthetic.main.fragment_add_schedule.*
+import kotlinx.android.synthetic.main.fragment_main.button_submit
 
-class AddScheduleFragment : Fragment() {
+class AddScheduleFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,7 +22,9 @@ class AddScheduleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         button_submit.setOnClickListener {
-
+            val bundle = Bundle()
+            bundle.putString("course_name", edit_text_course_name.text.toString())
+            navigateBackWithResult(RESULT_SUCCESS, bundle)
         }
     }
 }

@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.navigation.fragment.navArgs
+import inas.anisha.classify.Base.BaseFragment
+import inas.anisha.classify.navigation.BackNavigationListener
+import inas.anisha.classify.navigation.BackNavigationResult
 import kotlinx.android.synthetic.main.fragment_schedule.*
 
-class ScheduleFragment : Fragment() {
+
+class ScheduleFragment : BaseFragment(), BackNavigationListener {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,8 +31,29 @@ class ScheduleFragment : Fragment() {
         text_view_salutation.text = userName
 
         fab_add_schedule.setOnClickListener {
-            findNavController().navigate(R.id.fragment_add_schedule)
+            val action = ScheduleFragmentDirections.actionScheduleFragmentToAddScheduleFragment()
+            navigateForResult(-1, action, null, null)
         }
     }
 
+    override fun onNavigationResult(result: BackNavigationResult) {
+        if (result.resultCode == RESULT_SUCCESS) {
+            addCourse(result.data?.get("course_name") as String)
+        }
+    }
+
+    private fun addCourse(courseName: String) {
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+            .also { it.setMargins(0, 0, 0, 8) }
+
+        val textView = TextView(context).apply {
+            layoutParams = params
+            text = courseName
+        }
+
+        course_container.addView(textView)
+    }
 }
