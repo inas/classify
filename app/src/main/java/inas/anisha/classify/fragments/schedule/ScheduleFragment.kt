@@ -8,8 +8,6 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import inas.anisha.classify.R
-import inas.anisha.classify.ScheduleFragmentArgs
-import inas.anisha.classify.ScheduleFragmentDirections
 import inas.anisha.classify.base.BaseFragment
 import inas.anisha.classify.navigation.BackNavigationListener
 import inas.anisha.classify.navigation.BackNavigationResult
