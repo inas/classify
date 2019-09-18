@@ -38,6 +38,7 @@ dependencies {
     def nav_version = "1.0.0"
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    testImplementation "org.junit.jupiter:junit-jupiter:5.5.2"
 
     // Dagger
     implementation 'com.google.dagger:dagger:2.24'
@@ -64,6 +65,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.2.0'
-    testImplementation "org.junit.jupiter:junit-jupiter:5.5.2"
 
 }
