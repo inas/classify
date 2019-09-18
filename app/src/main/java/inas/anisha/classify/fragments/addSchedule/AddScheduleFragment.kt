@@ -1,10 +1,11 @@
-package inas.anisha.classify
+package inas.anisha.classify.fragments.addSchedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import inas.anisha.classify.Base.BaseFragment
+import inas.anisha.classify.R
+import inas.anisha.classify.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_add_schedule.*
 import kotlinx.android.synthetic.main.fragment_main.button_submit
 

@@ -1,4 +1,4 @@
-package inas.anisha.classify
+package inas.anisha.classify.fragments.schedule
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
-import inas.anisha.classify.Base.BaseFragment
+import inas.anisha.classify.R
+import inas.anisha.classify.ScheduleFragmentArgs
+import inas.anisha.classify.ScheduleFragmentDirections
+import inas.anisha.classify.base.BaseFragment
 import inas.anisha.classify.navigation.BackNavigationListener
 import inas.anisha.classify.navigation.BackNavigationResult
 import kotlinx.android.synthetic.main.fragment_schedule.*
@@ -31,7 +34,8 @@ class ScheduleFragment : BaseFragment(), BackNavigationListener {
         text_view_salutation.text = userName
 
         fab_add_schedule.setOnClickListener {
-            val action = ScheduleFragmentDirections.actionScheduleFragmentToAddScheduleFragment()
+            val action =
+                ScheduleFragmentDirections.actionScheduleFragmentToAddScheduleFragment()
             navigateForResult(-1, action, null, null)
         }
     }

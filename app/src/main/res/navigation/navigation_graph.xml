@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_main"
-        android:name="inas.anisha.classify.MainFragment"
+        android:name="inas.anisha.classify.fragments.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/fragment_schedule"
-        android:name="inas.anisha.classify.ScheduleFragment"
+        android:name="inas.anisha.classify.fragments.schedule.ScheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule">
         <action
@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/fragment_add_schedule"
-        android:name="inas.anisha.classify.AddScheduleFragment"
+        android:name="inas.anisha.classify.fragments.addSchedule.AddScheduleFragment"
         android:label="fragment_add_schedule"
         tools:layout="@layout/fragment_add_schedule">
         <action

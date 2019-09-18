@@ -1,4 +1,4 @@
-package inas.anisha.classify.Base
+package inas.anisha.classify.base
 
 import android.os.Bundle
 import androidx.annotation.IdRes
@@ -13,7 +13,7 @@ import inas.anisha.classify.navigation.BackNavigationListener
 import inas.anisha.classify.navigation.BackNavigationResult
 import kotlin.properties.Delegates
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment(), BaseView {
 
     private val requestCode: Int
         get() = arguments?.getInt(ARGUMENT_NAVIGATION_REQUEST_CODE, REQUEST_CODE_NOT_SET)
