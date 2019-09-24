@@ -16,12 +16,17 @@ import kotlinx.android.synthetic.main.fragment_schedule.*
 
 class ScheduleFragment : BaseFragment(), BackNavigationListener {
 
+    lateinit var mView: View
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_schedule, container, false)
+        if (!::mView.isInitialized) {
+            mView = inflater.inflate(R.layout.fragment_schedule, container, false)
+        }
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

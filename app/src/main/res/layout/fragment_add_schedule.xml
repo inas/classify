@@ -8,14 +8,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout_name"
-        style="@style/NameTextInputLayoutStyle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:hint="Course Name"
         app:boxBackgroundMode="outline"
-        app:boxStrokeColor="#C76784"
         app:counterEnabled="true"
         app:counterMaxLength="43"
         app:errorEnabled="true"

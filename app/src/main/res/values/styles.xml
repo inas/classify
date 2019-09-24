@@ -8,6 +8,35 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="NameTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="boxStrokeWidth">2dp</item>
     </style>
+
+    <style name="BaseText" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="BaseText.Common_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_main</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="BaseText.Common_14.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BaseText.XSmall_12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+
+    <style name="BaseText.XSmall_12.Regular">
+        <item name="android:textColor">@color/text_main</item>
+    </style>
+
 </resources>
