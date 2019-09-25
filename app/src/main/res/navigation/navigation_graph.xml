@@ -9,7 +9,7 @@
         android:id="@+id/fragment_main"
         android:name="inas.anisha.classify.fragments.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
+        tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_mainFragment_to_scheduleFragment"
             app:destination="@id/fragment_schedule">
@@ -23,7 +23,7 @@
         android:id="@+id/fragment_schedule"
         android:name="inas.anisha.classify.fragments.schedule.ScheduleFragment"
         android:label="fragment_schedule"
-        tools:layout="@layout/fragment_schedule">
+        tools:layout="@layout/schedule_fragment">
         <action
             android:id="@+id/action_scheduleFragment_to_addScheduleFragment"
             app:destination="@id/fragment_add_schedule" />
@@ -36,7 +36,7 @@
         android:id="@+id/fragment_add_schedule"
         android:name="inas.anisha.classify.fragments.addSchedule.AddScheduleFragment"
         android:label="fragment_add_schedule"
-        tools:layout="@layout/fragment_add_schedule">
+        tools:layout="@layout/add_schedule_fragment">
         <action
             android:id="@+id/action_fragment_add_schedule_to_fragment_schedule"
             app:destination="@id/fragment_schedule" />

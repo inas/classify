@@ -14,7 +14,7 @@ import inas.anisha.classify.adapter.TaskDataModel
 import inas.anisha.classify.base.BaseFragment
 import inas.anisha.classify.navigation.BackNavigationListener
 import inas.anisha.classify.navigation.BackNavigationResult
-import kotlinx.android.synthetic.main.fragment_schedule.*
+import kotlinx.android.synthetic.main.schedule_fragment.*
 import java.util.*
 
 
@@ -28,7 +28,7 @@ class ScheduleFragment : BaseFragment(), BackNavigationListener {
         savedInstanceState: Bundle?
     ): View? {
         if (!::mView.isInitialized) {
-            mView = inflater.inflate(R.layout.fragment_schedule, container, false)
+            mView = inflater.inflate(R.layout.schedule_fragment, container, false)
         }
         return mView
     }

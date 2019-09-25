@@ -12,7 +12,7 @@ import inas.anisha.classify.di.DaggerDIComponents
 import inas.anisha.classify.fragments.main.MainPresenter.Companion.USERNAME_EMPTY
 import inas.anisha.classify.fragments.main.MainPresenter.Companion.USERNAME_TOO_LONG
 import inas.anisha.classify.fragments.main.MainPresenter.Companion.USERNAME_VALID
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.main_fragment.*
 import javax.inject.Inject
 
 
@@ -34,7 +34,7 @@ class MainFragment : BaseFragment(), BaseContract.View {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

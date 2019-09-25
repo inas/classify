@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import inas.anisha.classify.R
 import inas.anisha.classify.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_add_schedule.*
-import kotlinx.android.synthetic.main.fragment_main.button_submit
+import kotlinx.android.synthetic.main.add_schedule_fragment.*
+import kotlinx.android.synthetic.main.main_fragment.button_submit
 
 class AddScheduleFragment : BaseFragment() {
 
@@ -16,7 +16,7 @@ class AddScheduleFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_schedule, container, false)
+        return inflater.inflate(R.layout.add_schedule_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
