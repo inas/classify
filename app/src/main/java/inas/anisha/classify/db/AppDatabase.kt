@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import inas.anisha.classify.db.converters.CalendarConverter
 import inas.anisha.classify.db.dao.TaskDao
 import inas.anisha.classify.db.entity.TaskData
 
 @Database(entities = [TaskData::class], version = 1)
+@TypeConverters(CalendarConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao

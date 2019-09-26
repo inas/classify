@@ -1,6 +1,5 @@
 package inas.anisha.classify.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import inas.anisha.classify.db.entity.TaskData
 
@@ -19,6 +18,6 @@ interface TaskDao {
     fun deleteAll()
 
     @Query("SELECT * from task ORDER BY task_due_date ASC")
-    fun getAllTask(): LiveData<MutableList<TaskData>>
+    fun getAllTask(): List<TaskData>
 
 }

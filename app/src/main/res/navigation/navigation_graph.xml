@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_fragment_schedule_to_fragment_add_task"
             app:destination="@id/fragment_add_task" />
+        <action
+            android:id="@+id/action_fragment_schedule_to_fragment_task_detail"
+            app:destination="@id/fragment_task_detail" />
     </fragment>
 
     <fragment
@@ -44,6 +47,7 @@
             android:id="@+id/action_fragment_add_schedule_to_fragment_schedule"
             app:destination="@id/fragment_schedule" />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_add_task"
         android:name="inas.anisha.classify.fragments.addTask.AddTaskFragment"
@@ -53,4 +57,10 @@
             android:id="@+id/action_fragment_add_task_to_fragment_schedule"
             app:destination="@id/fragment_schedule" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_task_detail"
+        android:name="inas.anisha.classify.fragments.taskDetail.TaskDetailFragment"
+        android:label="TaskDetailFragment"
+        tools:layout="@layout/task_detail_fragment"></fragment>
 </navigation>

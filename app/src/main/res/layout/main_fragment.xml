@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".fragments.main.MainFragment">
 
+    <ImageView
+        android:id="@+id/button_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_clear_red_32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout_name"
         style="@style/TextInputLayoutStyle"

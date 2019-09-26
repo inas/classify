@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import inas.anisha.classify.R
 import inas.anisha.classify.base.BaseContract
@@ -56,6 +58,22 @@ class MainFragment : BaseFragment(), BaseContract.View {
                 }
             }
 
+        }
+
+        val callback = object : OnBackPressedCallback(
+            true
+            /** true means that the callback is enabled */
+        ) {
+            override fun handleOnBackPressed() {
+                Toast.makeText(context, "please press X button to close app", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+        button_exit.setOnClickListener {
+            callback.isEnabled = false
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
     }
 

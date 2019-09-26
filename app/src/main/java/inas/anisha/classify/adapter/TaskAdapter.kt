@@ -6,11 +6,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import inas.anisha.classify.R
+import inas.anisha.classify.db.entity.TaskData
 import java.util.*
 
-
-class TaskAdapter(private val tasks: MutableList<TaskDataModel>) :
+class TaskAdapter(
+    private val tasks: List<TaskData>,
+    private val clickListener: OnItemClickListener
+) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(item: TaskData)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val itemView =
@@ -19,16 +26,7 @@ class TaskAdapter(private val tasks: MutableList<TaskDataModel>) :
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        tasks[position].let {
-            holder.taskName.text = it.taskName
-            val year = it.dueDate.get(Calendar.YEAR)
-            val month = it.dueDate.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH)
-            val day = it.dueDate.get(Calendar.DAY_OF_MONTH)
-            val time =
-                "" + it.dueDate.get(Calendar.HOUR_OF_DAY) + ":" + it.dueDate.get(Calendar.MINUTE)
-            holder.dueDate.text = "$day $month $year $time"
-            holder.description.text = it.description
-        }
+        holder.bind(tasks[position], clickListener)
     }
 
     override fun getItemCount() = tasks.size
@@ -42,6 +40,23 @@ class TaskAdapter(private val tasks: MutableList<TaskDataModel>) :
             taskName = view.findViewById(R.id.text_view_task_name)
             dueDate = view.findViewById(R.id.text_view_task_due_date)
             description = view.findViewById(R.id.text_view_task_description)
+        }
+
+        fun bind(task: TaskData, listener: OnItemClickListener) {
+            itemView.setOnClickListener { listener.onItemClick(task) }
+            taskName.text = task.taskName
+            description.text = task.taskDescription
+
+            val year = task.taskDueDate.get(Calendar.YEAR)
+            val month =
+                task.taskDueDate.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH)
+            val day = task.taskDueDate.get(Calendar.DAY_OF_MONTH)
+            val time =
+                "" + task.taskDueDate.get(Calendar.HOUR_OF_DAY) + ":" + task.taskDueDate.get(
+                    Calendar.MINUTE
+                )
+            dueDate.text = "$day $month $year $time"
+
         }
     }
 

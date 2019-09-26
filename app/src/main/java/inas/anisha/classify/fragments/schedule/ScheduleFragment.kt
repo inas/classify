@@ -6,16 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import inas.anisha.classify.R
+import inas.anisha.classify.Repository
 import inas.anisha.classify.adapter.TaskAdapter
-import inas.anisha.classify.adapter.TaskDataModel
 import inas.anisha.classify.base.BaseFragment
+import inas.anisha.classify.db.entity.TaskData
 import inas.anisha.classify.navigation.BackNavigationListener
 import inas.anisha.classify.navigation.BackNavigationResult
 import kotlinx.android.synthetic.main.schedule_fragment.*
-import java.util.*
 
 
 class ScheduleFragment : BaseFragment(), BackNavigationListener {
@@ -48,34 +49,35 @@ class ScheduleFragment : BaseFragment(), BackNavigationListener {
 
         recycler_view_tasks.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            val data = mutableListOf(
-                TaskDataModel(
-                    "task_1",
-                    Calendar.getInstance().also { it.set(2019, 10, 9, 23, 55) },
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                    "subject_1"
-                ),
-                TaskDataModel(
-                    "task_2",
-                    Calendar.getInstance().also { it.set(2019, 10, 10, 23, 55) },
-                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-                    "subject_2"
-                ),
-                TaskDataModel(
-                    "task_3",
-                    Calendar.getInstance().also { it.set(2019, 10, 10, 20, 55) },
-                    "",
-                    null
-                ),
-                TaskDataModel(
-                    "task_4",
-                    Calendar.getInstance().also { it.set(2019, 10, 12, 23, 55) },
-                    "Lorem ipsum dolor sit amet",
-                    "subject_2"
-                )
-            )
+//            var data = mutableListOf(
+//                TaskDataModel(
+//                    "task_1",
+//                    Calendar.getInstance().also { it.set(2019, 10, 9, 23, 55) },
+//                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+//                    "subject_1"
+//                ),
+//                TaskDataModel(
+//                    "task_2",
+//                    Calendar.getInstance().also { it.set(2019, 10, 10, 23, 55) },
+//                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+//                    "subject_2"
+//                ),
+//                TaskDataModel(
+//                    "task_3",
+//                    Calendar.getInstance().also { it.set(2019, 10, 10, 20, 55) },
+//                    "",
+//                    null
+//                )
+//            )
 
-            adapter = TaskAdapter(data)
+            val data = activity?.application?.let { it1 -> Repository(it1).getAllTasks() }
+                ?: mutableListOf()
+            adapter = TaskAdapter(data, object : TaskAdapter.OnItemClickListener {
+                override fun onItemClick(task: TaskData) {
+                    val bundle = Bundle().also { it.putParcelable("task_data", task) }
+                    findNavController().navigate(R.id.fragment_task_detail, bundle)
+                }
+            })
         }
     }
 

@@ -10,7 +10,9 @@ import androidx.fragment.app.Fragment
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import inas.anisha.classify.R
+import inas.anisha.classify.Repository
 import inas.anisha.classify.base.BaseFragment
+import inas.anisha.classify.db.entity.TaskData
 import kotlinx.android.synthetic.main.add_task_fragment.*
 import java.util.*
 
@@ -55,6 +57,13 @@ class AddTaskFragment : BaseFragment() {
 
         button_add_task.setOnClickListener {
             val date = Calendar.getInstance().also { it.set(year, month, day, hour, minute) }
+            val task = TaskData(
+                0,
+                edit_text_task_name.text.toString(),
+                edit_text_task_description.text.toString(),
+                date
+            )
+            activity?.application?.let { it1 -> Repository(it1).addTask(task) }
             navigateBackWithResult(RESULT_SUCCESS)
         }
     }
@@ -63,7 +72,9 @@ class AddTaskFragment : BaseFragment() {
         val timePickerDialog = TimePickerDialog.newInstance(
             { _, hourPick, minutePick, _ ->
                 edit_text_task_due_time.setText("$hourPick:$minutePick")
-            }, hour, minute, true
+                hour = hourPick
+                minute = minutePick
+            }, 0, 0, true
         ).also {
             it.accentColor = resources.getColor(R.color.colorPrimaryDark, null)
             it.setCancelColor(resources.getColor(R.color.white, null))
@@ -82,7 +93,10 @@ class AddTaskFragment : BaseFragment() {
         val datePickerDialog = DatePickerDialog.newInstance(
             { _, yearPick, monthPick, dayPick ->
                 edit_text_task_due_date.setText("$monthPick-$dayPick-$yearPick")
-            }, year, month, day
+                year = yearPick
+                month = monthPick
+                day = dayPick
+            }, 0, 0, 0
         ).also {
             it.accentColor = resources.getColor(R.color.colorPrimaryDark, null)
             it.setCancelColor(resources.getColor(R.color.white, null))
