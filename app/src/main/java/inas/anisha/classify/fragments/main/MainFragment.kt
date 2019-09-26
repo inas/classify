@@ -1,9 +1,12 @@
 package inas.anisha.classify.fragments.main
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.navigation.fragment.findNavController
 import inas.anisha.classify.R
 import inas.anisha.classify.base.BaseContract
@@ -45,7 +48,8 @@ class MainFragment : BaseFragment(), BaseContract.View {
             presenter.getUsernameError(userName).also {
                 showError(it)
                 if (it == USERNAME_VALID) {
-                    MainFragmentDirections.actionMainFragmentToScheduleFragment("Hello, $userName!")
+                    activity?.let { activity -> hideSoftKeyboard(activity) }
+                    MainFragmentDirections.actionMainFragmentToScheduleFragment(userName)
                         .also { action ->
                             findNavController().navigate(action)
                         }
@@ -60,6 +64,15 @@ class MainFragment : BaseFragment(), BaseContract.View {
             USERNAME_EMPTY -> input_layout_name.error = "Username cannot be empty"
             USERNAME_TOO_LONG -> input_layout_name.error = "Username too long"
         }
+    }
+
+    fun hideSoftKeyboard(activity: Activity) {
+        if (activity.currentFocus == null) {
+            return
+        }
+        val inputMethodManager =
+            activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(activity.currentFocus!!.windowToken, 0)
     }
 
 }

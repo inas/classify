@@ -24,6 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 androidExtensions {
@@ -42,6 +46,7 @@ dependencies {
     def nav_version = "1.0.0"
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation "org.junit.jupiter:junit-jupiter:5.5.2"
 
     // Dagger
@@ -74,5 +79,8 @@ dependencies {
     implementation "androidx.room:room-runtime:2.1.0"
     annotationProcessor "androidx.room:room-compiler:2.1.0"
     androidTestImplementation "androidx.room:room-testing:2.1.0"
+
+    // Date picker
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
 
 }

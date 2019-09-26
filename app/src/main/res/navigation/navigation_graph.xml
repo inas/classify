@@ -30,6 +30,9 @@
         <argument
             android:name="UserName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_fragment_schedule_to_fragment_add_task"
+            app:destination="@id/fragment_add_task" />
     </fragment>
 
     <fragment
@@ -39,6 +42,15 @@
         tools:layout="@layout/add_schedule_fragment">
         <action
             android:id="@+id/action_fragment_add_schedule_to_fragment_schedule"
+            app:destination="@id/fragment_schedule" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_add_task"
+        android:name="inas.anisha.classify.fragments.addTask.AddTaskFragment"
+        android:label="AddTaskFragment"
+        tools:layout="@layout/add_task_fragment">
+        <action
+            android:id="@+id/action_fragment_add_task_to_fragment_schedule"
             app:destination="@id/fragment_schedule" />
     </fragment>
 </navigation>

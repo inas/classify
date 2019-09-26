@@ -6,6 +6,7 @@
     <color name="colorPrimaryLight">#C5CAE9</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="red">#F44336</color>
     <color name="base_black_300">#8F8F8F</color>
     <color name="base_black_500">#434343</color>
 

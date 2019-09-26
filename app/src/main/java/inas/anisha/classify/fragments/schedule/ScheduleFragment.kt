@@ -38,11 +38,11 @@ class ScheduleFragment : BaseFragment(), BackNavigationListener {
 
         val safeArgs: ScheduleFragmentArgs by navArgs()
         val userName = safeArgs.userName
-        text_view_salutation.text = userName
+        text_view_salutation.text = "Hello, $userName!"
 
-        fab_add_schedule.setOnClickListener {
+        fab_add_task.setOnClickListener {
             val action =
-                ScheduleFragmentDirections.actionScheduleFragmentToAddScheduleFragment()
+                ScheduleFragmentDirections.actionFragmentScheduleToFragmentAddTask()
             navigateForResult(-1, action, null, null)
         }
 
@@ -81,7 +81,7 @@ class ScheduleFragment : BaseFragment(), BackNavigationListener {
 
     override fun onNavigationResult(result: BackNavigationResult) {
         if (result.resultCode == RESULT_SUCCESS) {
-            addCourse(result.data?.get("course_name") as String)
+//            addCourse(result.data?.get("course_name") as String)
         }
     }
 
